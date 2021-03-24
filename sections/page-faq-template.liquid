@@ -1,0 +1,223 @@
+<div class="outter--faq-page__container">
+  <div class="inner--faq-page__container">
+    <div class="faq--page__heading-container">
+      <h1 style="font-size: {{ section.settings.heading_font_size }}px;">
+        {{ section.settings.heading_text }}
+      </h1>
+    </div>
+    {% for block in section.blocks %}
+    <div class="first--holder" style="border-bottom: 1px solid {{ section.settings.border_color }};">
+      <div class="container--for__faqs">
+        <div class="first--faq__holder">
+          <p
+            class="question-p"
+            style="color: {{ section.settings.question_color }}; font-size: {{ section.settings.question_font_size }}px;">
+            {{ block.settings.question_text }}
+          </p>
+          <span
+            style="color: {{ section.settings.dot_color }}; font-size: {{ section.settings.dot_font_size }}px;">
+            {{ section.settings.ascii_text }}
+          </span>
+        </div>
+      </div>
+      <div class="outter--answer__container" style="background-color: {{ section.settings.answer_background_color }};">
+        <div class="answer--holder_container">
+          <p
+            class="first--answer"
+            style="color: {{ section.settings.answer_color }}; font-size: {{ section.settings.answer_font_size }}px;">
+            {{ block.settings.answer_text }}
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "FAQ",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Heading Options"
+      },
+      {
+        "id": "heading_text",
+        "type": "text",
+        "label": "Heading Text",
+        "default": "SI•RX | Frquently Asked Questions"
+      },
+      {
+        "type": "range",
+        "id": "heading_font_size",
+        "min": 20,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size",
+        "default": 35
+      },
+      {
+        "type": "header",
+        "content": "Question Options"
+      },
+      {
+        "type": "color",
+        "id": "question_color",
+        "label": "Color of the question",
+        "default": "#000000"
+      },
+      {
+        "type": "range",
+        "id": "question_font_size",
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size",
+        "default": 20
+      },
+      {
+        "type": "header",
+        "content": "Dot Settings"
+      },
+      {
+        "id": "ascii_text",
+        "type": "text",
+        "label": "ASCII / Unicode Symbol",
+        "default": "&#10687;"
+      },
+      {
+        "type": "color",
+        "id": "dot_color",
+        "label": "Color of the dot",
+        "default": "#00e0e6"
+      },
+      {
+        "type": "range",
+        "id": "dot_font_size",
+        "min": 10,
+        "max": 38,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size",
+        "default": 28
+      },
+      {
+        "type": "header",
+        "content": "Answer Settings"
+      },
+      {
+        "type": "color",
+        "id": "answer_color",
+        "label": "Color of the answer",
+        "default": "#69727b"
+      },
+      {
+        "type": "color",
+        "id": "answer_background_color",
+        "label": "Color of the answer background",
+        "default": "#333333"
+      },
+      {
+        "type": "range",
+        "id": "answer_font_size",
+        "min": 10,
+        "max": 38,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size",
+        "default": 16
+      },
+      {
+        "type": "header",
+        "content": "Bottom border settings"
+      },
+      {
+        "type": "color",
+        "id": "border_color",
+        "label": "Color of the border",
+        "default": "#00e0e6"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "select",
+        "name": "FAQ",
+        "limit": 12,
+        "settings": [
+          {
+            "id": "question_text",
+            "type": "text",
+            "label": "What is the question",
+            "default": "How can I confirm that SIRX is positioned properly?"
+          },
+          {
+            "id": "answer_text",
+            "type": "textarea",
+            "label": "What is the answer",
+            "default": "If after viewing the \"How to Use\" video on the website you are still unsure of placement, have someone else confirm. Have them locate both PSISs and make small marks over each, then line up the upper edge of SIRX between both marks. After using SIRX, have them check the mark made by the tool on your skin to confirm placement."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "FAQ",
+        "category": "FAQ"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+main.main-content {
+  padding-top: 0px;
+}
+div.outter--faq-page__container {
+  background-color: #414242;
+  padding-top: 4rem;
+  min-height: 100vh;
+}
+div.outter--faq-page__container div.inner--faq-page__container div.faq--page__heading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+div.outter--faq-page__container div.inner--faq-page__container div.faq--page__heading-container h1 {
+  color: white;
+  padding: 0 2rem;
+}
+div.inner--faq-page__container div.first--holder div.outter--answer__container {
+  background-color: #333333;
+  padding: 2rem 0;
+}
+div.container--for__faqs div.first--faq__holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+div.container--for__faqs div.first--faq__holder span {
+  font-size: 28px;
+}
+div.container--for__faqs div.first--faq__holder span:hover {
+  cursor: pointer;
+}
+div.answer--holder_container {
+  max-width: 90%;
+  margin-left: auto;
+}
+p.question-p {
+  color: black;
+  font-size: 20px;
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,54 @@
+<div class="page-width">
+  <div class="empty-page-content text-center">
+    <h1>{{ section.settings.four-heading-text-box  }}</h1>
+    <p>{{ section.settings.four-body-text-box }}</p>
+    <p>
+      <a
+        href="{{ section.settings.four-button-path }}"
+        class="btn btn--has-icon-after">
+          {{ section.settings.four-button-text }}{% include 'icon-arrow-right' %}
+      </a>
+    </p>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "404 Page Settings",
+    "settings": [
+      {
+        "id": "four-heading-text-box",
+        "type": "text",
+        "label": "Heading Text",
+        "default": "404 Page Not Found"
+      },
+      {
+        "id": "four-body-text-box",
+        "type": "text",
+        "label": "Body Text",
+        "default": "The page you requested does not exist."
+      },
+      {
+        "id": "four-button-text",
+        "type": "text",
+        "label": "Button Text",
+        "default": "CONTINUE SHOPPING"
+      },
+      {
+        "type": "url",
+        "id": "four-button-path",
+        "label": "Button Path Selection"
+      },
+      {
+        "type": "paragraph",
+        "content": "The above field can accept any URL or you can select an available page from the dropdown."
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

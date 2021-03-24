@@ -1,0 +1,301 @@
+<div class="outter--carousel__container">
+  <div class="custom-carousel--container">
+    <!-- CODE FROM FLICKITY -->
+    <div class="desktop-custom--carousel__inner-container">
+      <div class="carousel"
+       data-flickity='{ "lazyLoad": true, "wrapAround": true }'>
+        <div class="carousel-cell">
+          {% if section.settings.carousel_first_image == blank %}
+          <img class="carousel-cell-image"
+            data-flickity-lazyload="https://cdn.shopify.com/s/files/1/0323/2337/1067/files/SIRXCarouselImageNumberOne.png?v=1614805231" alt="SI*RX Lower Back" />
+          {% else %}
+          <img class="carousel-cell-image"
+            data-flickity-lazyload="{{ section.settings.carousel_first_image| img_url: '711x' }}" alt="SI*RX Lower Back" />
+          {% endif %}
+        </div>
+        <div class="carousel-cell">
+          {% if section.settings.carousel_second_image == blank %}
+          <img class="carousel-cell-image"
+            data-flickity-lazyload="https://cdn.shopify.com/s/files/1/0323/2337/1067/files/SIRXCarouselImageNumberTwo.png?v=1614805256"
+            alt="SI*RX Skeleton Model" />
+          {% else %}
+          <img class="carousel-cell-image"
+            data-flickity-lazyload="{{ section.settings.carousel_second_image| img_url: '711x' }}" alt="SI*RX Skeleton Model" />
+          {% endif %}
+        </div>
+        <div class="carousel-cell">
+          {% if section.settings.carousel_third_image == blank %}
+          <img class="carousel-cell-image"
+            data-flickity-lazyload="https://cdn.shopify.com/s/files/1/0323/2337/1067/files/SIRXCarouselImageNumberThree.png?v=1614805277"
+            alt="SI*RX Showing Back Points" />
+          {% else %}
+          <img class="carousel-cell-image"
+            data-flickity-lazyload="{{ section.settings.carousel_third_image| img_url: '711x' }}" alt="SI*RX Showing Back Points" />
+          {% endif %}
+        </div>
+        <div class="carousel-cell">
+          {% if section.settings.carousel_fourth_image == blank %}
+          <img class="carousel-cell-image"
+            data-flickity-lazyload="https://cdn.shopify.com/s/files/1/0323/2337/1067/files/SIRXCarouselImageNumberFour.png?v=1614805303"
+            alt="Placement For SI*RX" />
+          {% else %}
+          <img class="carousel-cell-image"
+            data-flickity-lazyload="{{ section.settings.carousel_fourth_image| img_url: '711x' }}" alt="Placement For SI*RX" />
+          {% endif %}
+        </div>
+        <div class="carousel-cell">
+          {% if section.settings.carousel_fifth_image == blank %}
+          <img class="carousel-cell-image"
+            data-flickity-lazyload="https://cdn.shopify.com/s/files/1/0323/2337/1067/files/SIRXCarouselImageNumberFive.png?v=1614805324"
+            alt="SI*RX Full Body Placement" />
+          {% else %}
+          <img class="carousel-cell-image"
+            data-flickity-lazyload="{{ section.settings.carousel_fifth_image| img_url: '711x' }}" alt="SI*RX Full Body Placement" />
+          {% endif %}
+        </div>
+        <div class="carousel-cell">
+          {% if section.settings.carousel_sixth_image == blank %}
+          <img class="carousel-cell-image"
+            data-flickity-lazyload="https://cdn.shopify.com/s/files/1/0323/2337/1067/files/SIRXCarouselImageNumberSix.png?v=1614805344"
+            alt="Showing SI*RX Position" />
+          {% else %}
+          <img class="carousel-cell-image"
+            data-flickity-lazyload="{{ section.settings.carousel_sixth_image| img_url: '711x' }}" alt="Showing SI*RX Position" />
+          {% endif %}
+        </div>
+        {% for block in section.blocks %}
+        <div class="carousel-cell">
+          <img class="carousel-cell-image"
+            data-flickity-lazyload="{{ block.settings.desktop_block_image| img_url: '711x' }}" alt="{{ block.settings.block_carousel_alt }}" />
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="mobile-custom--carousel__inner-container">
+      <div class="mobile--slick__cell">
+        {% if section.settings.mobile_carousel_first_image == blank %}
+        <img
+          src="https://cdn.shopify.com/s/files/1/0323/2337/1067/files/SIRXCarouselImageNumberOne.png?v=1614805231"
+          alt="SI*RX Lower Back"
+          loading="lazy"/>
+        {% else %}
+        <img
+          src="{{ section.settings.mobile_carousel_first_image| img_url: '711x' }}"
+          alt="SI*RX Lower Back"
+          loading="lazy"/>
+        {% endif %}
+      </div>
+      <div class="mobile--slick__cell">
+        {% if section.settings.mobile_carousel_second_image == blank %}
+        <img
+          src="https://cdn.shopify.com/s/files/1/0323/2337/1067/files/SIRXCarouselImageNumberTwo.png?v=1614805256"
+          alt="SI*RX Skeleton Model"
+          loading="lazy"/>
+        {% else %}
+        <img
+          src="{{ section.settings.mobile_carousel_second_image| img_url: '711x' }}"
+          alt="SI*RX Skeleton Model"
+          loading="lazy"/>
+        {% endif %}
+      </div>
+      <div class="mobile--slick__cell">
+        {% if section.settings.mobile_carousel_third_image == blank %}
+        <img
+          src="https://cdn.shopify.com/s/files/1/0323/2337/1067/files/SIRXCarouselImageNumberThree.png?v=1614805277"
+          alt="SI*RX Showing Back Points"
+          loading="lazy"/>
+        {% else %}
+        <img
+          src="{{ section.settings.mobile_carousel_third_image| img_url: '711x' }}"
+          alt="SI*RX Showing Back Points"
+          loading="lazy"/>
+        {% endif %}
+      </div>
+      <div class="mobile--slick__cell">
+        {% if section.settings.mobile_carousel_fourth_image == blank %}
+        <img
+          src="https://cdn.shopify.com/s/files/1/0323/2337/1067/files/SIRXCarouselImageNumberFour.png?v=1614805303"
+          alt="Placement For SI*RX"
+          loading="lazy"/>
+        {% else %}
+        <img
+          src="{{ section.settings.mobile_carousel_fourth_image| img_url: '711x' }}"
+          alt="Placement For SI*RX"
+          loading="lazy"/>
+        {% endif %}
+      </div>
+      <div class="mobile--slick__cell">
+        {% if section.settings.mobile_carousel_fifth_image == blank %}
+        <img
+          src="https://cdn.shopify.com/s/files/1/0323/2337/1067/files/SIRXCarouselImageNumberFive.png?v=1614805324"
+          alt="SI*RX Full Body Placement"
+          loading="lazy"/>
+        {% else %}
+        <img
+          src="{{ section.settings.mobile_carousel_fifth_image| img_url: '711x' }}"
+          alt="SI*RX Full Body Placement"
+          loading="lazy"/>
+        {% endif %}
+      </div>
+      <div class="mobile--slick__cell">
+        {% if section.settings.mobile_carousel_sixth_image == blank %}
+        <img
+          src="https://cdn.shopify.com/s/files/1/0323/2337/1067/files/SIRXCarouselImageNumberSix.png?v=1614805344"
+          alt="Showing SI*RX Position"
+          loading="lazy"/>
+        {% else %}
+        <img
+          src="{{ section.settings.mobile_carousel_sixth_image| img_url: '711x' }}"
+          alt="Showing SI*RX Position"
+          loading="lazy"/>
+        {% endif %}
+      </div>
+      {% for block in section.blocks %}
+      <div class="mobile--slick__cell">
+        <img
+          src="{{ block.settings.mobile_block_image| img_url: '711x' }}"
+          alt="{{ block.settings.mobile_block_carousel_alt }}"
+          loading="lazy"/>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- CODE FROM FLICKITY -->
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Image Carousel",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Desktop Carousel"
+      },
+      {
+        "type": "image_picker",
+        "id": "carousel_first_image",
+        "label": "First Image",
+        "info": "711px x 398px"
+      },
+      {
+        "type": "image_picker",
+        "id": "carousel_second_image",
+        "label": "Second Image",
+        "info": "711px x 398px"
+      },
+      {
+        "type": "image_picker",
+        "id": "carousel_third_image",
+        "label": "Third Image",
+        "info": "711px x 398px"
+      },
+      {
+        "type": "image_picker",
+        "id": "carousel_fourth_image",
+        "label": "Fourth Image",
+        "info": "711px x 398px"
+      },
+      {
+        "type": "image_picker",
+        "id": "carousel_fifth_image",
+        "label": "Fifth Image",
+        "info": "711px x 398px"
+      },
+      {
+        "type": "image_picker",
+        "id": "carousel_sixth_image",
+        "label": "Sixth Image",
+        "info": "711px x 398px"
+      },
+      {
+        "type": "header",
+        "content": "Mobile Carousel"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_carousel_first_image",
+        "label": "Mobile First Image",
+        "info": "711px x 398px"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_carousel_second_image",
+        "label": "Mobile Second Image",
+        "info": "711px x 398px"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_carousel_third_image",
+        "label": "Mobile Third Image",
+        "info": "711px x 398px"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_carousel_fourth_image",
+        "label": "Mobile Fourth Image",
+        "info": "711px x 398px"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_carousel_fifth_image",
+        "label": "Mobile Fifth Image",
+        "info": "711px x 398px"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_carousel_sixth_image",
+        "label": "Mobile Sixth Image",
+        "info": "711px x 398px"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "select",
+        "name": "Carousel Image Selection",
+        "limit": 12,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "desktop_block_image",
+            "label": "Add A Desktop Image",
+            "info": "711px x 398px"
+          },
+          {
+            "type": "text",
+            "id": "block_carousel_alt",
+            "label": "ALT Text For Desktop Carousel Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "mobile_block_image",
+            "label": "Add A Mobile Image",
+            "info": "711px x 398px"
+          },
+          {
+            "type": "text",
+            "id": "mobile_block_carousel_alt",
+            "label": "ALT Text For Mobile Carousel Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image Carousel",
+        "category": "Image Carousel"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+ul.slick-dots li button:focus {
+  outline: none;
+  border: none;
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,284 @@
+<div class="outter--testimonial__container">
+  <div class="inner--testimonial__container">
+    <div class="heading--holder">
+      <h2
+        class="{% if section.settings.enable_bottom_border %}with--bottom__border{% else %} no--border_disabled{% endif %}"
+        style="color: {{ section.settings.top_heading_color }};">
+        {{ section.settings.review_title_text }}
+      </h2>
+    </div>
+    <div class="test--slick__container--holder">
+      {% for block in section.blocks %}
+      <div class="home-testimonials__content">
+        <div class="home-testimonials__media">
+          <div class="home-testimonials__media__item home-testimonials__media__item--stars-brand">
+            <div class="first-star">
+              {% include 'blue-testimonial-star' %}
+            </div>
+            <div class="second-star">
+              {% include 'blue-testimonial-star' %}
+            </div>
+            <div class="third-star">
+              {% include 'blue-testimonial-star' %}
+            </div>
+            <div class="fourth-star">
+              {% include 'blue-testimonial-star' %}
+            </div>
+            <div class="fifth-star">
+              {% include 'blue-testimonial-star' %}
+            </div>
+          </div>
+        </div>
+        <div class="home-testimonials__text">
+          <blockquote class="home-testimonials__text__text">
+            {{ block.settings.testimonial_text }}
+          </blockquote>
+        </div>
+        <div class="home-testimonials__name">
+          <p
+            class="home-testimonials__name__text"
+            style="color: white; font-size: 17px; font-weight: bold;">
+            {{ block.settings.user_test_name }}
+          </p>
+        </div>
+        <div class="home-testimonials__source">
+          <p class="home-testimonials__source__text" style="color: white;">{{ block.settings.testimonial_source }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+{% if section.settings.show_hide_button %}
+<div class="testimonial--page__button">
+  <button
+    class="custom--button__holder alt--color__button"
+    style="
+      background-color: {{ section.settings.background_color_bottom_button }};
+      width: {{ section.settings.custom_second_button_width }}px;
+      height: {{ section.settings.custom_second_button_height }}px;">
+    <a
+      href="{{ section.settings.path_contact_button }}"
+      style="
+        color: {{ section.settings.font_color_bottom_button }};
+        font-size: {{ section.settings.custom_second_button_font_size }}px;">
+      {{ section.settings.contact_button_text }}
+    </a>
+  </button>
+</div>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Testimonials Section",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Title Text Options"
+      },
+      {
+        "type": "text",
+        "id": "review_title_text",
+        "default": "Customer Reviews",
+        "label": "Heading Text"
+      },
+      {
+        "type": "color",
+        "id": "top_heading_color",
+        "label": "Title Text Color",
+        "default": "#C5E5FF"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_bottom_border",
+        "label": "Enable Bottom Border",
+        "info": "border on the title text",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Stars Settings"
+      },
+      {
+        "type": "color",
+        "id": "background_color_stars",
+        "label": "Stars Color",
+        "default": "#00E0E6"
+      },
+      {
+        "type": "header",
+        "content": "Contact Button Options"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_hide_button",
+        "label": "show/hide button",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "contact_button_text",
+        "default": "Contact Us",
+        "label": "Contact Us Button Text"
+      },
+      {
+        "type": "range",
+        "id": "custom_second_button_font_size",
+        "min": 10,
+        "max": 26,
+        "step": 1,
+        "unit": "px",
+        "label": "Button Text Font size",
+        "default": 16
+      },
+      {
+        "type": "text",
+        "id": "path_contact_button",
+        "default": "/pages/contact-us",
+        "label": "The Path For The Button"
+      },
+      {
+        "type": "color",
+        "id": "background_color_bottom_button",
+        "label": "Button Color",
+        "default": "#7da0da"
+      },
+      {
+        "type": "color",
+        "id": "font_color_bottom_button",
+        "label": "Button Font Color",
+        "default": "#000000"
+      },
+      {
+        "type": "range",
+        "id": "custom_second_button_width",
+        "min": 100,
+        "max": 200,
+        "step": 1,
+        "unit": "px",
+        "label": "Button Width",
+        "default": 150
+      },
+      {
+        "type": "range",
+        "id": "custom_second_button_height",
+        "min": 15,
+        "max": 55,
+        "step": 1,
+        "unit": "px",
+        "label": "Button Height",
+        "default": 35
+      }
+    ],
+    "blocks": [
+      {
+        "type": "select",
+        "name": "Testimonials Selection",
+        "limit": 12,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "testimonial_text",
+            "label": "Testimonial Text",
+            "default": "<p>Default Testimonial <em>richtext</em> <a href=\"https://example.com/\">content</a></p>"
+          },
+          {
+            "type": "text",
+            "id": "user_test_name",
+            "label": "Users Name",
+            "default": "Sarah"
+          },
+          {
+            "type": "text",
+            "id": "testimonial_source",
+            "label": "Source Of Testimonial",
+            "default": "Etsy Review"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonials",
+        "category": "Testimonials"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+div.inner--testimonial__container div.heading--holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+div.inner--testimonial__container div.heading--holder h2.with--bottom__border {
+  color: white;
+  border-bottom: 2px solid white;
+  font-size: 26px;
+}
+div.inner--testimonial__container div.heading--holder h2.no--border_disabled {
+  color: white;
+  border-bottom: none;
+  font-size: 26px;
+}
+div.home-testimonials__media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+div.home-testimonials__media__item.home-testimonials__media__item--stars-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 20%;
+}
+div.home-testimonials__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.home-testimonials__text__text {
+  max-width: 50%;
+  text-align: center;
+}
+.home-testimonials__text__text p {
+  color: #FFFFFF;
+  font-style: italic;
+}
+div.home-testimonials__name {
+  display: flex;
+  justify-content: center;
+}
+div.home-testimonials__source {
+  display: flex;
+  justify-content: center;
+}
+div.home-testimonials__content.slick-slide.slick-current.slick-active:focus {
+  outline: none;
+  border: none;
+}
+div.home-testimonials__content.slick-slide:focus {
+  outline: none;
+  border: none;
+}
+div.testimonial--page__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+ul.slick-dots li button:focus {
+  outline: none;
+  border: none;
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

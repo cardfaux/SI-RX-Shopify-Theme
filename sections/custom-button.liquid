@@ -1,0 +1,100 @@
+<div class="custom--button__outter-container">
+  <button
+    class="custom--button__holder"
+    style="
+      background-color: {{ section.settings.custom_button_background_color }};
+      width: {{ section.settings.custom_first_button_width }}px;
+      height: {{ section.settings.custom_first_button_height }}px;">
+    <a
+      href="{{ section.settings.custom_button_path }}"
+      style="
+        color: {{ section.settings.custom_button_text_color }};
+        font-size: {{ section.settings.custom_first_button_font_size }}px;">
+      {{ section.settings.custom_button_text }}
+    </a>
+  </button>
+</div>
+
+{% schema %}
+  {
+    "name": "Button",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Button Settings"
+      },
+      {
+        "type": "text",
+        "id": "custom_button_text",
+        "default": "Shop Now",
+        "label": "Button Text"
+      },
+      {
+        "type": "range",
+        "id": "custom_first_button_font_size",
+        "min": 10,
+        "max": 26,
+        "step": 1,
+        "unit": "px",
+        "label": "Button Text Font size",
+        "default": 16
+      },
+      {
+        "type": "text",
+        "id": "custom_button_path",
+        "default": "/collections/all",
+        "label": "Path For The Button"
+      },
+      {
+        "type": "color",
+        "id": "custom_button_background_color",
+        "label": "Button Background color",
+        "default": "#00E0E6"
+      },
+      {
+        "type": "color",
+        "id": "custom_button_text_color",
+        "label": "Button Text color",
+        "default": "#000000"
+      },
+      {
+        "type": "range",
+        "id": "custom_first_button_width",
+        "min": 100,
+        "max": 200,
+        "step": 1,
+        "unit": "px",
+        "label": "Button Width",
+        "default": 150
+      },
+      {
+        "type": "range",
+        "id": "custom_first_button_height",
+        "min": 15,
+        "max": 55,
+        "step": 1,
+        "unit": "px",
+        "label": "Button Height",
+        "default": 35
+      }
+    ],
+    "presets": [
+      {
+        "name": "Button",
+        "category": "Button"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+div.custom--button__outter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

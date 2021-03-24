@@ -1,0 +1,258 @@
+<div class="shop-custom_page--container">
+  <div class="inner_container-page__shop">
+    <div class="heading-container--custom_jah">
+      <h1
+        style="
+          color: {{ section.settings.shop_heading_color }};
+          font-size: {{ section.settings.shop_heading_font_size }}px;">
+        {{ section.settings.shop_heading_text }}
+      </h1>
+    </div>
+
+    <div class="custom--product__image-container--jah">
+      <div class="image--holder__jah">
+        {% if section.settings.shop_image == blank %}
+        <img
+          src="https://cdn.shopify.com/s/files/1/0323/2337/1067/files/Resized_5_720x_b2c3150c-5703-484c-b85e-5be67bc39880.png?v=1614877230"
+          alt="SIRX product holder" />
+        {% else %}
+        <img
+          src="{{ section.settings.shop_image| img_url: 'large' }}"
+          alt="{{ section.settings.image_shop_alt_text }}"
+          width="360px"
+          height="203px" />
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="subtitle--custom__holder-jah">
+      <h2
+        style="
+          color: {{ section.settings.shop_sirx_text_color }};
+          font-size: {{ section.settings.shop_sirx_font_size }}px;">
+        {{ section.settings.shop_middle_text }}
+      </h2>
+    </div>
+
+    <div class="custom--price__holder-jah">
+      <p
+        style="
+          color: {{ section.settings.shop_price_color }};
+          font-size: {{ section.settings.shop_price_font_size }}px;">
+        {{ section.settings.shop_price_text }}
+      </p>
+    </div>
+
+    <div class="custom--button__holder--jah">
+      <a href="/collections/all/products/sirx">
+        <button
+          style="
+            background-color: {{ section.settings.shop_button_color }};
+            font-size: {{ section.settings.shop_button_font_size }}px;
+            width: {{ section.settings.shop_button_width_size }}px;
+            height: {{ section.settings.shop_button_height_size }}px;">
+          {{ section.settings.shop_button_text }}
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Shop Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Heading Settings"
+      },
+      {
+        "type": "text",
+        "id": "shop_heading_text",
+        "default": "Our Product",
+        "label": "Heading Text"
+      },
+      {
+        "type": "color",
+        "id": "shop_heading_color",
+        "label": "Heading Color",
+        "default": "#C5E5FF"
+      },
+      {
+        "type": "range",
+        "id": "shop_heading_font_size",
+        "min": 22,
+        "max": 42,
+        "step": 1,
+        "unit": "px",
+        "label": "Heading Font size",
+        "default": 32
+      },
+      {
+        "type": "header",
+        "content": "Image Settings"
+      },
+      {
+        "type": "image_picker",
+        "id": "shop_image",
+        "label": "Product Image"
+      },
+      {
+        "type": "text",
+        "id": "image_shop_alt_text",
+        "default": "Our SI•RX Product",
+        "label": "Image ALT Text"
+      },
+      {
+        "type": "header",
+        "content": "Text Settings"
+      },
+      {
+        "type": "text",
+        "id": "shop_middle_text",
+        "default": "SI·RX",
+        "label": "SIRX Text Text"
+      },
+      {
+        "type": "color",
+        "id": "shop_sirx_text_color",
+        "label": "SIRX Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "range",
+        "id": "shop_sirx_font_size",
+        "min": 28,
+        "max": 58,
+        "step": 1,
+        "unit": "px",
+        "label": "SIRX Font size",
+        "default": 48
+      },
+      {
+        "type": "header",
+        "content": "Price Settings"
+      },
+      {
+        "type": "text",
+        "id": "shop_price_text",
+        "default": "from $19.99",
+        "label": "Price Text"
+      },
+      {
+        "type": "color",
+        "id": "shop_price_color",
+        "label": "Price Color",
+        "default": "#C5E5FF"
+      },
+      {
+        "type": "range",
+        "id": "shop_price_font_size",
+        "min": 25,
+        "max": 45,
+        "step": 1,
+        "unit": "px",
+        "label": "Price Font size",
+        "default": 35
+      },
+      {
+        "type": "header",
+        "content": "Button Settings"
+      },
+      {
+        "type": "text",
+        "id": "shop_button_text",
+        "default": "SHOP NOW",
+        "label": "Button Text"
+      },
+      {
+        "type": "color",
+        "id": "shop_button_color",
+        "label": "Button Color",
+        "default": "#00e0e6"
+      },
+      {
+        "type": "range",
+        "id": "shop_button_font_size",
+        "min": 14,
+        "max": 44,
+        "step": 1,
+        "unit": "px",
+        "label": "Button Font size",
+        "default": 24
+      },
+      {
+        "type": "range",
+        "id": "shop_button_width_size",
+        "min": 5,
+        "max": 500,
+        "step": 5,
+        "unit": "px",
+        "label": "Button Width",
+        "default": 225
+      },
+      {
+        "type": "range",
+        "id": "shop_button_height_size",
+        "min": 18,
+        "max": 48,
+        "step": 1,
+        "unit": "px",
+        "label": "Button Height",
+        "default": 38
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+div.heading-container--custom_jah {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.heading-container--custom_jah h1 {
+  color: #C5E5FF;
+}
+div.subtitle--custom__holder-jah {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.subtitle--custom__holder-jah h2 {
+  color: #FFFFFF;
+  font-size: 48px;
+}
+div.custom--price__holder-jah {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+div.custom--price__holder-jah p {
+  color: #C5E5FF;
+  font-size: 35px;
+}
+div.custom--product__image-container--jah {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0;
+}
+div.custom--button__holder--jah {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.custom--button__holder--jah a button {
+  background-color: #00E0E6;
+  font-size: 24px;
+  border: none;
+  color: black;
+  width: 224px;
+  height: 38px;
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
